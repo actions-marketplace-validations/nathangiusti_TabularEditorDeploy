@@ -7,6 +7,8 @@ import zipfile
 
 def main():
 
+    arg_list = []
+    print("Argument: {}".format(sys.argv))
     print("{} arguments".format(len(sys.argv)))
     for arg in sys.argv:
         print(arg)
