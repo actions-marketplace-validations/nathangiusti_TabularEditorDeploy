@@ -1,0 +1,30 @@
+{
+  "name": "Ints",
+  "dataType": "int64",
+  "sourceColumn": "Ints",
+  "formatString": "0",
+  "lineageTag": "77c37b36-bc0b-492e-82c5-64f0a44bb9a8",
+  "summarizeBy": "sum",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    },
+    {
+      "name": "Format",
+      "value": "<Format Format=\"NumberWhole\" Accuracy=\"0\" />"
+    },
+    {
+      "name": "DataTypeAtRefresh",
+      "value": "Int64#####not a type"
+    },
+    {
+      "name": "PBI_NameAtRefresh",
+      "value": "Ints"
+    },
+    {
+      "name": "PBI_WasHiddenAtRefresh",
+      "value": "False"
+    }
+  ]
+}

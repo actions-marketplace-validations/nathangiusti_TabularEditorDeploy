@@ -1,0 +1,14 @@
+{
+  "name": "Another Table",
+  "mode": "import",
+  "source": {
+    "type": "m",
+    "expression": [
+      "let",
+      "    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText(\"TYo7CoBADAWvIqmXYH4nsQypxWYL8f5I4gppHryZcQeCAYS5x3Nf89wWIIjhwHX2ppMwMpeWT3efSFCkvC7fg2SKqhXYH/QioaEZRLw=\", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Ints = _t, Decimals = _t, Strings = _t, Currency = _t]),",
+      "    #\"Changed Type\" = Table.TransformColumnTypes(Source,{{\"Ints\", Int64.Type}, {\"Decimals\", type number}, {\"Strings\", type text}, {\"Currency\", type number}})",
+      "in",
+      "    #\"Changed Type\""
+    ]
+  }
+}

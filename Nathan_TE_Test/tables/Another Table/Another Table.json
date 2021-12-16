@@ -1,0 +1,10 @@
+{
+  "name": "Another Table",
+  "lineageTag": "7faa578b-2540-4581-a74b-ebb2809d50bd",
+  "annotations": [
+    {
+      "name": "TabularEditor_Relationships",
+      "value": "[]"
+    }
+  ]
+}

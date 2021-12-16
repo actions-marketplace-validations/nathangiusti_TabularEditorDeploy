@@ -1,0 +1,5 @@
+{
+  "name": "Temp",
+  "expression": "IF(SUM('Table'[Decimals])==SUM('Table'[Ints]),IF(NOT(ISBLANK(MAX('Table'[Strings]))),0,1),1)",
+  "lineageTag": "6dbfd620-9c2f-498a-8f5c-578bb278fb27"
+}
