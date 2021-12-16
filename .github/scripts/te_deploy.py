@@ -7,6 +7,10 @@ import zipfile
 
 def main():
 
+    print("{} arguments".format(len(sys.argv)))
+    for arg in sys.argv:
+        print(arg)
+        
     # Download Tabular Editor Portable, extract, and delete zip file
     cwd = os.getcwd()
     zip_location = cwd + "\TabularEditor.zip"
