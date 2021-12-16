@@ -34,3 +34,6 @@ def main():
     print(updated_datasets)
 
     os.system()
+
+if __name__ == "__main__":
+    main()
