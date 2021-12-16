@@ -23,7 +23,7 @@ jobs:
           pip install PyYAML
       - name: execute py script
         run: |
-          python .github/scripts/te_deploy.py ${{ steps.changed-files.outputs.all_changed_files }}
+          python .github/scripts/te_deploy.py "${{ steps.changed-files.outputs.all_changed_files }}"
         env:
           CLIENT_ID: ${{ secrets.NON_PROD_SPN_ID }}
           CLIENT_SECRET: ${{ secrets.NON_PROD_SPN_SECRET }}
