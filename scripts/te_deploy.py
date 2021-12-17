@@ -24,7 +24,7 @@ def main():
     cwd = os.getcwd()
     zip_location = cwd + "\\TabularEditor.zip"
     urllib.request.urlretrieve("https://cdn.tabulareditor.com/files/te2/TabularEditor.Portable.zip",
-                               cwd + "\\TabularEditor.exe")
+                               zip_location)
 
     with zipfile.ZipFile(zip_location, 'r') as zip_ref:
         zip_ref.extractall(cwd)
@@ -42,7 +42,7 @@ def main():
 
     # Post datasets to workspace
     for dataset in updated_datasets:
-        run_str = "TabularEditor.exe .\{} -D \"Provider=MSOLAP;Data Source={};User ID=app:{}@{};Password={}\" {} -O -C -G -E -W"\
+        run_str = cwd + "\\TabularEditor.exe .\{} -D \"Provider=MSOLAP;Data Source={};User ID=app:{}@{};Password={}\" {} -O -C -G -E -W"\
             .format(dataset, db_url, client_id, tenant_id, client_secret, dataset)
         os.system(run_str)
         print("Deployed {}".format(dataset))
