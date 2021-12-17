@@ -34,11 +34,10 @@ def main():
     # Find all modified datasets
     updated_datasets = []
     for file in file_list:
-        if os.path.exists(file):
-            path = Path(file)
-            dataset = path.parts[0]
-            if dataset not in updated_datasets and not dataset.startswith("."):
-                updated_datasets.append(dataset)
+        path = Path(file)
+        dataset = path.parts[0]
+        if dataset not in updated_datasets and not dataset.startswith("."):
+            updated_datasets.append(dataset)
     
     # Post datasets to workspace
     for dataset in updated_datasets:
