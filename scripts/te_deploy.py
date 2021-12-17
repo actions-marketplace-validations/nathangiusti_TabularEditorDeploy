@@ -35,10 +35,11 @@ def main():
     updated_datasets = []
     for file in file_list:
         path = Path(file)
-        dataset = path.parts[0]
-        if dataset not in updated_datasets and not dataset.startswith("."):
-            updated_datasets.append(dataset)
-    
+        if len(path.parts) != 0:
+            dataset = path.parts[0]
+            if dataset not in updated_datasets and not dataset.startswith("."):
+                updated_datasets.append(dataset)
+
     # Post datasets to workspace
     for dataset in updated_datasets:
         run_str = "TabularEditor.exe .\{} -D \"Provider=MSOLAP;Data Source={};User ID=app:{}@{};Password={}\" {} -O -C -G -E -W"\
