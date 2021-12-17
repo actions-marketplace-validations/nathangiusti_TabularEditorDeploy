@@ -1,4 +1,4 @@
-name: 'Tabular Editor Data Model deploy'
+name: 'Tabular Editor Datamodel Deploy'
 description: 'Deploy Datamodel in folder structure to target workspace'
 author: 'Nathan Giusti'
 inputs:
@@ -18,4 +18,3 @@ runs:
     - ${{ inputs.files }}
     - ${{ inputs.tenant_id }}
     - ${{ inputs.db_url }}
-  
