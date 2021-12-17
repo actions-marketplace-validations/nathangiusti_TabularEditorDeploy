@@ -24,7 +24,7 @@ def main():
     cwd = os.getcwd()
     zip_location = cwd + "\\TabularEditor.zip"
     urllib.request.urlretrieve("https://cdn.tabulareditor.com/files/te2/TabularEditor.Portable.zip",
-                               cwd + "\\TabularEditor.zip")
+                               cwd + "\\TabularEditor.exe")
 
     with zipfile.ZipFile(zip_location, 'r') as zip_ref:
         zip_ref.extractall(cwd)
