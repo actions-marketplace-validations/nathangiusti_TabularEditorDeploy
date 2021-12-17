@@ -9,7 +9,7 @@ inputs:
     description: 'Your tenant id'
     required: true
   db_url:
-    description: 'The url of the workspace to deploy to
+    description: 'The url of the workspace to deploy to'
     required: true
 runs:
   using: 'docker'
