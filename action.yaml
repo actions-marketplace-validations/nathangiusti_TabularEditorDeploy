@@ -11,7 +11,6 @@ inputs:
   db_url:
     description: 'The url of the workspace to deploy to
     required: true
-    
 runs:
   using: 'docker'
   image: 'Dockerfile'
