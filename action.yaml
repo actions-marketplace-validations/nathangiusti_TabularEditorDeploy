@@ -1,0 +1,22 @@
+name: 'Tabular Editor Data Model deploy'
+description: 'Deploy Datamodel in folder structure to target workspace'
+author: 'Nathan Giusti'
+inputs:
+  files:
+    description: 'Files to deploy'
+    required: true
+  tenant_id: 
+    description: 'Your tenant id'
+    required: true
+  db_url:
+    description: 'The url of the workspace to deploy to
+    required: true
+    
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.files }}
+    - ${{ inputs.tenant_id }}
+    - ${{ inputs.db_url }}
+  
