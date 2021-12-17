@@ -28,14 +28,20 @@ def main():
     
     # Find all modified datasets
     updated_datasets = []
-    for file in sys.argv:
+    for file in file_list:
         if os.path.exists(file):
             path = Path(file)
-            dataset = workspace = os.path.basename(path.parent.absolute())
-            if dataset not in updated_datasets:
+            dataset = path.parts[0]
+            if dataset not in updated_datasets and not dataset.startswith("."):
                 updated_datasets.append(dataset)
     
+    alchemy_test_url = "powerbi://api.powerbi.com/v1.0/myorg/Alchemy%20Datasets%20%5BTest%5D"
     print(updated_datasets)
+    for dataset in updated_datasets:
+        run_str = "TabularEditor.exe .\{} -D {} {} -O -C -G -E -W".format(dataset, alchemy_test_url, dataset)
+        os.system(run_str)
+    # TabularEditor.exe .\AdventureWorks -S ".\Scripts\ReplaceDataSourceConnectionString.csx" -D "%AS_CONNECTIONSTRING%" ValidationDataset -O -C -G -E -W
+    # 
 
     # os.system()
 
