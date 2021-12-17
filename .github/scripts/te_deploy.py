@@ -3,11 +3,23 @@ from pathlib import Path
 import sys
 import urllib.request
 import zipfile
-
+import argparse
 
 def main():
 
-    arg_list = []
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--tenant_id", nargs = 1)
+    parser.add_argument("--db_url", nargs = 1)
+    parser.add_argument("--files", nargs = 1)
+    args = parser.parse_args()
+    
+    tenant_id = args.tenant_id
+    db_url = args.db_url
+    files = args.files
+
+    client_id = os.environ['CLIENT_ID']
+    client_secret = os.environ['CLIENT_SECRET']
+    
 
     file_string = sys.argv[1]
     file_list = file_string.split(',')
@@ -35,15 +47,13 @@ def main():
             if dataset not in updated_datasets and not dataset.startswith("."):
                 updated_datasets.append(dataset)
     
-    alchemy_test_url = "powerbi://api.powerbi.com/v1.0/myorg/Alchemy%20Datasets%20%5BTest%5D"
-    print(updated_datasets)
+    # Post datasets to workspace
     for dataset in updated_datasets:
-        run_str = "TabularEditor.exe .\{} -D {} {} -O -C -G -E -W".format(dataset, alchemy_test_url, dataset)
+        run_str = "TabularEditor.exe .\{} -D \"Provider=MSOLAP;Data Source={};User ID=app:{}@{};Password={}\" {} -O -C -G -E -W"\
+            .format(dataset, db_url, client_id, tenant_id, client_secret, dataset)
         os.system(run_str)
-    # TabularEditor.exe .\AdventureWorks -S ".\Scripts\ReplaceDataSourceConnectionString.csx" -D "%AS_CONNECTIONSTRING%" ValidationDataset -O -C -G -E -W
-    # 
+        print("Deployed {}".format(dataset))
 
-    # os.system()
 
 if __name__ == "__main__":
     main()

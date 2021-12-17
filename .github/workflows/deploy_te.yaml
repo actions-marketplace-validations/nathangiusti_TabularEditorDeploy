@@ -23,7 +23,7 @@ jobs:
           pip install PyYAML
       - name: execute py script
         run: |
-          python .github/scripts/te_deploy.py "${{ steps.changed-files.outputs.all_changed_files }}"
+          python .github/scripts/te_deploy.py --tenant_id "cef04b19-7776-4a94-b89b-375c77a8f936" --db_url "powerbi://api.powerbi.com/v1.0/myorg/Alchemy%20Datasets%20%5BTest%5D" --files "${{ steps.changed-files.outputs.all_changed_files }}"
         env:
           CLIENT_ID: ${{ secrets.NON_PROD_SPN_ID }}
           CLIENT_SECRET: ${{ secrets.NON_PROD_SPN_SECRET }}
